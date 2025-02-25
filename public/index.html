@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1576506542790-51244b486a6b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+
+        .main-header {
+            height: 100px;
+            width: 100%;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-header {
+            background-image: url(https://www.istockphoto.com/photos/wooden-texture);
+            background-size: cover;
+            border: 3px solid #4a3728;
+            color: #f4e4bc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section {
+            width: 1920px;
+            height: 4000px;
+            /* background-image: linear-gradient(rgba(255, 255, 255, 0.95),
+                    rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3'); */
+            background-color: #1a1a1a;
+            background-size: cover;
+            background-position: center;
+            /* Changed margin-top to push it lower */
+            margin: 70px auto 40px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                0 15px 40px rgba(0, 0, 0, 0.3);
+            /* Removed the negative transform */
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section {
+            /* background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1000&auto=format&fit=crop'); */
+            background-size: cover;
+            border: 4px solid #654321;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* .content-section:hover {
+            transform: translateY(-35px);
+        } */
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Changed the rgba value to have more transparency (increased from 0.9 to 0.95) */
+            background: rgba(255, 255, 255);
+            border-radius: 25px;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            font-size: 36px;
+            color: black;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            padding-top: 20px;
+        }
+
+        .section-header {
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .subsections-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+            padding: 0 40px;
+        }
+
+        .subsection {
+            width: 30%;
+            text-align: center;
+            padding: 25px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            margin: 0 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subsection {
+            /* background-image: url('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1000&auto=format&fit=crop'); */
+            background-size: cover;
+            border: 2px solid #8b4513;
+            color: #f4e4bc;
+        }
+
+        .subsection:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subsection h2 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .resources {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .resources p {
+            background-color: #8b4513;
+
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resources p:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources a {
+            color: #292929;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .resources a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        /* Add these styles for better visual depth */
+        .content-section::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 5%;
+            right: 5%;
+            height: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        .other-section {
+            width: 100%;
+            /* Make it full width within content-section */
+            height: auto;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            margin: 40px -20px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+
+
+        .other-section h2 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subject-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .subject-card {
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* .other-section {
+            width: 500px;
+            height: auto;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            margin: 40px -20px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        } */
+
+        .other-section h2 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subject-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .subject-card {
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #1a1a1a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .other-section {
+            width: 1913px;
+            /* Increased width to accommodate more content */
+            height: auto;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            margin: 40px -20px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-resources {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            /* Increased from 30px */
+            padding: 40px;
+            /* Increased from 20px */
+        }
+
+        .subject-block {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 35px;
+            height: auto;
+            /* Changed from 100% to auto */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 30px;
+        }
+
+        .subject-block {
+            background-image: url('https://images.unsplash.com/photo-1635524283789-dd12cc9ab228?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            border: 3px solid #8b4513;
+            color: #f4e4bc;
+        }
+
+        .subject-block h3 {
+            color: #1a1a1a;
+            font-size: 28px;
+            /* Increased from 24px */
+            margin-bottom: 20px;
+            /* Increased from 15px */
+            border-bottom: 2px solid #cc0000;
+            padding-bottom: 8px;
+        }
+
+
+        .tips-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /* Increased from 15px */
+        }
+
+        .tip {
+            color: #ffffff;
+            padding: 20px;
+            /* Increased padding */
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            font-size: 30px;
+            /* Increased to 30px as requested */
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .tip {
+            /* background-image: url('https://images.unsplash.com/photo-1547989453-11e67ffb3885?q=80&w=1000&auto=format&fit=crop'); */
+            background-size: cover;
+            color: var(--text-light);
+            border: 2px solid var(--wood-medium);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .youtube-rec {
+            margin-top: 25px;
+            /* Increased from 20px */
+            padding-top: 25px;
+            /* Increased from 20px */
+            border-top: 2px solid #eee;
+            /* Made border slightly thicker */
+        }
+
+        .youtube-rec {
+            border-top: 2px solid var(--wood-light);
+        }
+
+        .youtube-rec p {
+            color: #1a1a1a;
+            font-weight: bold;
+            font-size: 18px;
+            /* Added font size */
+            margin-bottom: 12px;
+            /* Increased from 8px */
+        }
+
+        .youtube-rec a {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+
+        .youtube-rec a {
+            color: #1a1a1a;
+        }
+
+
+        .youtube-rec a:hover {
+            color: #990000;
+            text-decoration: underline;
+            font-size: 30px;
+        }
+
+        /* .youtube-rec a:hover {
+            color: var(--wood-light);
+        } */
+
+        .subject-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .tips-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tip {
+            color: #ffffff;
+            padding: 15px;
+            /* Increased from 12px */
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            /* Slightly increased */
+            font-size: 18px;
+            /* Increased from 16px */
+            line-height: 1.4;
+            /* Added for better readability */
+        }
+
+        .youtube-rec {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Add this to adjust the spacing between sections */
+        .subsections-container {
+            margin-bottom: 60px;
+        }
+
+        :root {
+            --wood-dark: #4a3728;
+            --wood-medium: #8b4513;
+            --wood-light: #deb887;
+            --text-light: #f4e4bc;
+            --text-dark: #2c1810;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        Study Resources Hub
+    </header>
+
+    <div class="content-section">
+        <div class="overlay"></div>
+        <h1 class="section-header">Resources</h1>
+
+        <div class="subsections-container">
+            <!-- Rest of the content remains the same -->
+            <div class="subsection">
+                <h2>Coding</h2>
+                <div class="resources">
+                    <p><a href="https://www.w3schools.com">W3Schools - Web Development</a></p>
+                    <p><a href="https://www.freecodecamp.org">freeCodeCamp - Programming</a></p>
+                    <p><a href="https://www.codecademy.com">Codecademy - Interactive Learning</a></p>
+                    <p><a href="https://www.geeksforgeeks.org">GeeksForGeeks - Programming Tutorials</a></p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h2>IGCSE Learning</h2>
+                <div class="resources">
+                    <p><a href="https://www.savemyexams.co.uk">Save My Exams - IGCSE Resources</a></p>
+                    <p><a href="https://www.bbc.co.uk/bitesize">BBC Bitesize - IGCSE Studies</a></p>
+                    <p><a href="https://www.physicsandmathstutor.com">Physics & Math Tutor</a></p>
+                    <p><a href="https://www.igcsecentre.com">IGCSE Centre - Study Materials</a></p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h2>Cybersecurity Practice</h2>
+                <div class="resources">
+                    <p><a href="https://www.tryhackme.com">TryHackMe - Cyber Security Training</a></p>
+                    <p><a href="https://www.hackthebox.eu">Hack The Box - Cybersecurity Training</a></p>
+                    <p><a href="https://www.cybrary.it">Cybrary - Online Cyber Security Courses</a></p>
+                    <p><a href="https://www.sans.org/cyber-security-courses">SANS - Security Training</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="other-section">
+            <h2>Other Subjects</h2>
+            <div class="subject-block">
+                <h3>Physics</h3>
+                <div class="tips-section">
+
+                    <p class="tip">• Draw diagrams for mechanics problems</p>
+                    <p class="tip">• Learn and memorize key equations</p>
+                    <p class="tip">• Practice past paper calculations</p>
+                    <p class="tip">• Study force diagrams carefully</p>
+                    <p class="tip">• Understand vector components</p>
+                    <p class="tip">• Master unit conversions</p>
+                    <p class="tip">Practice Resources: <a href="https://brilliant.org/physics"
+                            class="practice-link">Brilliant - Physics</a>
+                    </p>
+                    <div class="youtube-rec">
+                        <p>Recommended Channels:</p>
+                        <a href="https://www.youtube.com/@PhysicsOnline" target="_blank">Physics Online</a>
+                        <a href="https://www.youtube.com/@MichelvanBiezen" target="_blank">Michel van Biezen</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="subject-block">
+                <h3>Biology</h3>
+                <div class="tips-section">
+                    <p class="tip">• Create mind maps for complex systems</p>
+                    <p class="tip">• Use mnemonics for processes</p>
+                    <p class="tip">• Draw and label diagrams regularly</p>
+                    <p class="tip">• Study cell structures thoroughly</p>
+                    <p class="tip">• Practice genetic crosses</p>
+                    <p class="tip">• Memorize key biological terms</p>
+                    <p class="tip">Practice Resources: <a href="https://www.khanacademy.org/science/biology"
+                            class="practice-link">Khan Academy -
+                            Biology</a>
+                    </p>
+                    <div class="youtube-rec">
+                        <p>Recommended Channels:</p>
+                        <a href="https://www.youtube.com/@AmoebaSisters" target="_blank">Amoeba Sisters</a>
+                        <a href="https://www.youtube.com/@CrashCourse" target="_blank">Crash Course Biology</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subject-block">
+                <h3>Math</h3>
+                <div class="tips-section">
+                    <p class="tip">• Practice daily problem solving</p>
+                    <p class="tip">• Review basic concepts regularly</p>
+                    <p class="tip">• Work through example problems step-by-step</p>
+                    <p class="tip">• Create formula sheets</p>
+                    <p class="tip">• Solve problems multiple ways</p>
+                    <p class="tip">• Practice time management</p>
+                    <p class="tip">Practice Resources: <a href="https://www.wolframalpha.com"
+                            class="practice-link">Wolfram Alpha - Math</a>
+                    </p>
+                    <div class="youtube-rec">
+                        <p>Recommended Channels:</p>
+                        <a href="https://www.youtube.com/@3blue1brown" target="_blank">3Blue1Brown</a>
+                        <a href="https://www.youtube.com/@patrickjmt" target="_blank">PatrickJMT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subject-block">
+                <h3>Chemistry</h3>
+                <div class="tips-section">
+
+                    <p class="tip">• Memorize periodic table patterns</p>
+                    <p class="tip">• Practice balancing equations</p>
+                    <p class="tip">• Learn common reaction types</p>
+                    <p class="tip">• Study electron configurations</p>
+                    <p class="tip">• Master mole calculations</p>
+                    <p class="tip">• Review organic chemistry rules</p>
+                    <p class="tip">Practice Resources: <a href="https://www.chemtutor.com"
+                            class="practice-link">ChemTutor - Chemistry</a>
+                    </p>
+                    <a href="https://www.chemtutor.com" class="practice-link">ChemTutor - Chemistry</a>
+                    <div class="youtube-rec">
+                        <p>Recommended Channels:</p>
+                        <a href="https://www.youtube.com/@TylerDeWitt" target="_blank">Tyler DeWitt</a>
+                        <a href="https://www.youtube.com/@TheOrganicChemistryTutor" target="_blank">The Organic
+                            Chemistry Tutor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-section">
+            <h2>Artificial Intelligence Learning</h2>
+            <div class="ai-container">
+                <div class="ai-intro">
+                    <h3>Introduction to AI</h3>
+                    <p>Artificial Intelligence is revolutionizing the way we live and work. It encompasses machine
+                        learning, deep learning, and neural networks, enabling computers to perform tasks that typically
+                        require human intelligence.</p>
+                    <p>Key areas include:</p>
+                    <ul>
+                        <li>Machine Learning</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision</li>
+                        <li>Robotics</li>
+                    </ul>
+                </div>
+                <div class="ai-right-section">
+                    <div class="ai-goals">
+                        <h3>Goals and Objectives</h3>
+                        <p>Why Learn AI?</p>
+                        <ul>
+                            <li>High demand in industry</li>
+                            <li>Future-proof career path</li>
+                            <li>Solve complex problems</li>
+                            <li>Drive innovation</li>
+                        </ul>
+                    </div>
+                    <div class="ai-careers">
+                        <h3>AI Careers</h3>
+                        <div class="career-item">
+                            <h4>Machine Learning Engineer</h4>
+                            <p>Develops AI models and algorithms</p>
+                        </div>
+                        <div class="career-item">
+                            <h4>AI Research Scientist</h4>
+                            <p>Advances AI theory and applications</p>
+                        </div>
+                        <div class="career-item">
+                            <h4>Data Scientist</h4>
+                            <p>Analyzes and interprets complex data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        async function trackVisitor() {
+            try {
+                // Collect basic visitor information
+                const visitorData = {
+                    screenResolution: `${window.screen.width}x${window.screen.height}`,
+                    language: navigator.language,
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    referrer: document.referrer,
+                    path: window.location.pathname
+                };
+
+                // Send data to server
+                const response = await fetch('/track-visitor', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(visitorData)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to track visitor');
+                }
+            } catch (error) {
+                console.error('Error tracking visitor:', error);
+            }
+        }
+
+        // Track visitor when page loads
+        document.addEventListener('DOMContentLoaded', trackVisitor);
+    </script>
+
+</body>
+
+</html>
